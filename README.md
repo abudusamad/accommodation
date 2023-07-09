@@ -1,0 +1,1 @@
+This is a react base project for hostel management system
