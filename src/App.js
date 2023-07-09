@@ -27,7 +27,7 @@ function App() {
 	return (
 		<ColorModeContext.Provider value={colorMode}>
 			<ThemeProvider theme={theme}>
-				<CssBaseline>
+				<CssBaseline />
 					<QueryClientProvider client={queryClient}>
 						<Suspense fallback={<LoadingSkeleton />}>
 							<div className="app">
@@ -53,7 +53,6 @@ function App() {
 							</div>
 						</Suspense>
 					</QueryClientProvider>
-				</CssBaseline>
 			</ThemeProvider>
 		</ColorModeContext.Provider>
 	);
