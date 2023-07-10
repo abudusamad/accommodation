@@ -7,13 +7,12 @@ import { useNavigate } from "react-router-dom";
 import { hostels } from "../data/dummy";
 import { tokens } from "../theme";
 
-const HostelList = ({ reserve }) => {
+const HostelList = () => {
 	const theme = useTheme();
 	const colors = tokens(theme.palette.mode);
 	const [likedItems, setLikedItems] = useState([]);
-	const [searchQuery, setSearchQuery] = useState("");
-	const [filteredData, setFilteredData] = useState([]);
-
+	 const [query, setQuery] = useState("");
+	const [filteredData, setFilteredData] = useState(hostels);
 	const handleLike = (index) => {
 		const isLiked = likedItems.includes(index);
 
@@ -26,17 +25,18 @@ const HostelList = ({ reserve }) => {
 		}
 	};
 	const navigate = useNavigate();
+	const handleInputChange = (e) => {
+		const inputValue = e.target.value;
+		setQuery(inputValue);
 
-	const filterData = (query) => {
-		const filteredArray = hostels.filter((hostel) =>
-			hostel.toLowerCase().includes(query.toLowerCase())
-		);
-		setFilteredData(filteredArray);
-	};
-
-	const handleSearchChange = (e) => {
-		setSearchQuery(e.target.value);
-		filterData(e.target.value);
+		if (inputValue === "") {
+			setFilteredData(hostels); // Reset to original data when input is empty
+		} else {
+			const filteredResults = hostels.filter((item) =>
+				item.name.toLowerCase().includes(inputValue.toLowerCase())
+			);
+			setFilteredData(filteredResults);
+		}
 	};
 
 	return (
@@ -51,8 +51,8 @@ const HostelList = ({ reserve }) => {
 					<InputBase
 						sx={{ ml: 2, flex: 1, width: "75%" }}
 						placeholder="Search"
-						value={searchQuery}
-						onChange={handleSearchChange}
+						value={query}
+						onChange={handleInputChange}
 					/>
 					<IconButton type="button" sx={{ p: 1 }}>
 						<SearchIcon />
@@ -76,7 +76,7 @@ const HostelList = ({ reserve }) => {
 									height: "60%",
 								}}
 								onClick={() => navigate("/reserve")}
-								key={index}
+								key={hostel.id}
 							/>
 							<Box display="flex" flexDirection="column">
 								<Typography
