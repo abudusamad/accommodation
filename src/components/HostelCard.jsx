@@ -32,8 +32,11 @@ const HostelList = () => {
 		if (inputValue === "") {
 			setFilteredData(hostels); // Reset to original data when input is empty
 		} else {
-			const filteredResults = hostels.filter((item) =>
-				item.name.toLowerCase().includes(inputValue.toLowerCase())
+			const filteredResults = hostels.filter(
+				(item) =>
+					item.name.toLowerCase().includes(inputValue.toLowerCase()) ||
+					item.address.toLowerCase().includes(inputValue.toLowerCase()) ||
+					item.namLoc.toLowerCase().includes(inputValue.toLowerCase())
 			);
 			setFilteredData(filteredResults);
 		}
