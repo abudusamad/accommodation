@@ -78,7 +78,7 @@ const HostelList = () => {
 									width: "auto",
 									height: "60%",
 								}}
-								onClick={() => navigate("/reserve")}
+								onClick={() => navigate("/hostels")}
 								key={hostel.id}
 							/>
 							<Box display="flex" flexDirection="column">

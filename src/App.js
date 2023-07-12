@@ -48,7 +48,7 @@ function App() {
 									<Route path="/invoices" element={<Invoices />} />
 									<Route path="/bar" element={<ComponentList />} />
 									<Route path="/my-profile" element={<MyProfile />} />
-									<Route path="/reserve" element={<HotelInfo />} />
+									<Route path="/hostels" element={<HotelInfo />} />
 								</Routes>
 							</main>
 						</div>
