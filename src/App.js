@@ -28,31 +28,32 @@ function App() {
 		<ColorModeContext.Provider value={colorMode}>
 			<ThemeProvider theme={theme}>
 				<CssBaseline />
-					<QueryClientProvider client={queryClient}>
-						<Suspense fallback={<LoadingSkeleton />}>
-							<div className="app">
-								<Sidebar isSidebar={isSidebar} />
-								<main className="content">
-									<Topbar setIsSidebar={setIsSidebar} />
-									<Routes>
-										<Route path="/" element={<Login setAuth={setAuth} />} />
-										<Route
-											path="/signup"
-											element={<Signup setAuth={setAuth} />}
-										/>
-										<Route path="/dashboard" element={<Dashboard />} />
-										<Route path="/geography" element={<Geography />} />
-										<Route path="/calendar" element={<Calendar />} />
-										<Route path="/faq" element={<FAQ />} />
-										<Route path="/invoices" element={<Invoices />} />
-										<Route path="/bar" element={<ComponentList />} />
-										<Route path="/my-profile" element={<MyProfile />} />
-										<Route path="/reserve" element={<HotelInfo />} />
-									</Routes>
-								</main>
-							</div>
-						</Suspense>
-					</QueryClientProvider>
+				<QueryClientProvider client={queryClient}>
+					<Suspense fallback={<LoadingSkeleton />}>
+						<div className="app">
+							<Sidebar isSidebar={isSidebar} />
+							<main className="content">
+								<Topbar setIsSidebar={setIsSidebar} />
+								<Routes>
+									<Route path="/" element={<Login setAuth={setAuth} />} />
+									<Route
+										path="/signup"
+										element={<Signup setAuth={setAuth} />}
+									/>
+									<Route path="/dashboard" element={<Dashboard />} />
+									<Route path="/hotelinfo" element={<HotelInfo />} />
+									<Route path="/geography" element={<Geography />} />
+									<Route path="/calendar" element={<Calendar />} />
+									<Route path="/faq" element={<FAQ />} />
+									<Route path="/invoices" element={<Invoices />} />
+									<Route path="/bar" element={<ComponentList />} />
+									<Route path="/my-profile" element={<MyProfile />} />
+									<Route path="/reserve" element={<HotelInfo />} />
+								</Routes>
+							</main>
+						</div>
+					</Suspense>
+				</QueryClientProvider>
 			</ThemeProvider>
 		</ColorModeContext.Provider>
 	);
