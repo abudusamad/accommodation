@@ -475,6 +475,45 @@ export const customersGrid = [
 ];
 
 
+export const bookings = [
+	[
+		{
+			name: "Brunei-Complex",
+			address: "123 Street, City A",
+			price: "$200",
+			image: product10,
+			likes: <StarIcon />,
+			dislikes: <StarHalfIcon />,
+			location: <LocationOnIcon />,
+			wifi: <WifiIcon />,
+			bed: <SingleBedIcon />,
+			favourite: <FavoriteBorderIcon />,
+			number: "2 bed",
+			rating: "4.9",
+			reviews: "300 reviews",
+			namLoc: "Knust",
+			available: "No Wifi ",
+		},
+	],
+	[
+		{
+			
+			image: product10,
+			likes: <StarIcon />,
+			dislikes: <StarHalfIcon />,
+			location: <LocationOnIcon />,
+			wifi: <WifiIcon />,
+			bed: <SingleBedIcon />,
+			favourite: <FavoriteBorderIcon />,
+			number: "2 bed",
+			rating: "4.9",
+			reviews: "300 reviews",
+			namLoc: "Knust",
+			available: "No Wifi ",
+		},
+	],
+];
+
 export const hostels = [
 	{
 		name: "Brunei-Complex",
