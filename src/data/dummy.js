@@ -476,8 +476,6 @@ export const customersGrid = [
 
 
 export const bookings = [
-
-	
 		{
 			image: product1,
 		},
@@ -510,8 +508,7 @@ export const bookings = [
 		{
 			image: product9,
 		},
-	
-	
+
 ];
 
 export const hostels = [

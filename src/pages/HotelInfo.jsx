@@ -3,8 +3,8 @@ import {
 	Button,
 	CardContent,
 	Container,
+	Grid,
 	ListItem,
-	Typography,
 } from "@mui/material";
 import React, { useState } from "react";
 import { Toaster } from "react-hot-toast";
@@ -12,8 +12,7 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { getHotelBySlug } from "../api/request";
 import { BookingModal } from "../components/BookingModal";
-import { ImageGallery } from "./ImageGallery";
-
+import { bookings } from "../data/dummy";
 
 export default function HotelInfo() {
 	const [open, setOpen] = useState(false);
@@ -33,65 +32,50 @@ export default function HotelInfo() {
 	const { data } = useQuery("hotel-info", fetchHoteInfo);
 
 	return (
-		<>
-			<Box display="flex" flexDirection="row" justifyItems='center' alignContent='space-between'>
-				<ImageGallery />
-				<Container
-					maxWidth={"lg"}
-					sx={{
-						marginTop: 2,
-					}}
-				>
-					<Typography fontSize={22} sx={{ lineHeight: 1.9, marginBottom: 3 }}>
-						{data?.name}
-					</Typography>
-
-					<Box
-						sx={{ display: "flex", marginTop: 2, gap: "0 12px", color: "gray" }}
-					>
-						{data?.rooms.map((room) => (
-							<Typography key={room.id} variant="caption">
-								{room.content}
-							</Typography>
-						))}
-					</Box>
-					<Typography variant="subtitle1" sx={{ marginTop: 2 }}>
-						{data?.aboutThePlace}
-					</Typography>
-					<Box sx={{ marginTop: 2 }}>
-						<Typography variant="h5">What this place offers!!</Typography>
-						<Box
-							sx={{
-								display: "flex",
-								justifyContent: "sace-between",
-								alignItems: "center",
+		<Box display="none" flexDirection="column">
+			<Grid container spacing={0}>
+				{bookings?.map((booking, index) => (
+					<Grid key={index.id} xs={12} md={4}>
+						<img
+							src={booking.image}
+							alt={`Hostel ${index + 1}`}
+							className="p-4"
+							style={{
+								width: "auto",
+								height: "100%",
 							}}
-						>
-							<Box sx={{ flex: 1 }}>
-								{data?.features.map((feature) => (
-									<ListItem key={feature.id}>{feature.text}</ListItem>
-								))}
-							</Box>
+						/>
+					</Grid>
+				))}
+			</Grid>
+			<Container
+				maxWidth={"lg"}
+				sx={{
+					marginTop: 2,
+				}}
+			>
+				<Box sx={{ flex: 1 }}>
+					{data?.features.map((feature) => (
+						<ListItem key={feature.id}>{feature.text}</ListItem>
+					))}
+				</Box>
 
-							<CardContent>
-								<Button onClick={handleOpen} variant="outlined">
-									Reserve
-								</Button>
-							</CardContent>
-						</Box>
-					</Box>
-				</Container>
-				<BookingModal hotelInfo={data} open={open} handleClose={handleClose} />
-				<Toaster
-					position="top-right"
-					toastOptions={{
-						duration: 1500,
-						style: {
-							fontSize: 14,
-						},
-					}}
-				/>
-			</Box>
-		</>
+				<CardContent>
+					<Button onClick={handleOpen} variant="outlined">
+						Reserve
+					</Button>
+				</CardContent>
+			</Container>
+			<BookingModal hotelInfo={data} open={open} handleClose={handleClose} />
+			<Toaster
+				position="top-right"
+				toastOptions={{
+					duration: 1500,
+					style: {
+						fontSize: 14,
+					},
+				}}
+			/>
+		</Box>
 	);
 }
