@@ -14,6 +14,7 @@ import { getHotelBySlug } from "../api/request";
 import { BookingModal } from "../components/BookingModal";
 import { ImageGallery } from "./ImageGallery";
 
+
 export default function HotelInfo() {
 	const [open, setOpen] = useState(false);
 
@@ -33,7 +34,7 @@ export default function HotelInfo() {
 
 	return (
 		<>
-			<main sx={{display:"flex", flex }}>
+			<Box display="flex" flexDirection="row" justifyItems='center' alignContent='space-between'>
 				<ImageGallery />
 				<Container
 					maxWidth={"lg"}
@@ -80,17 +81,17 @@ export default function HotelInfo() {
 						</Box>
 					</Box>
 				</Container>
-			</main>
-			<BookingModal hotelInfo={data} open={open} handleClose={handleClose} />
-			<Toaster
-				position="top-right"
-				toastOptions={{
-					duration: 1500,
-					style: {
-						fontSize: 14,
-					},
-				}}
-			/>
+				<BookingModal hotelInfo={data} open={open} handleClose={handleClose} />
+				<Toaster
+					position="top-right"
+					toastOptions={{
+						duration: 1500,
+						style: {
+							fontSize: 14,
+						},
+					}}
+				/>
+			</Box>
 		</>
 	);
 }
