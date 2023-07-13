@@ -5,7 +5,6 @@ import { Route, Routes } from "react-router-dom";
 import { LoadingSkeleton } from "./components/LoadingSkeleton";
 import Login from "./pages/Home/Login";
 import Signup from "./pages/Home/Signup";
-import HotelInfo from "./pages/register/HotelInfo";
 import MyProfile from "./pages/register/MyProfile.jsx";
 import ComponentList from "./scenes/bar";
 import Calendar from "./scenes/calendar/calendar";
@@ -16,7 +15,7 @@ import Sidebar from "./scenes/global/Sidebar";
 import Topbar from "./scenes/global/Topbar";
 import Invoices from "./scenes/invoices";
 import { ColorModeContext, useMode } from "./theme";
-// import { ImageGallery } from "./pages/ImageGallery";
+ import { ImageGallery } from "./pages/ImageGallery";
 
 function App() {
 	const [theme, colorMode] = useMode();
@@ -49,8 +48,8 @@ function App() {
 									<Route path="/invoices" element={<Invoices />} />
 									<Route path="/bar" element={<ComponentList />} />
 									<Route path="/my-profile" element={<MyProfile />} />
-									{ <Route path="/hostels" element={<HotelInfo />} />  }
-									{/* <Route path ="/hostels" element={<ImageGallery />} /> */}
+								
+									<Route path ="/hostels" element={<ImageGallery />} />
 								</Routes>
 							</main>
 						</div>

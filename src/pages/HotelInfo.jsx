@@ -48,34 +48,7 @@ export default function HotelInfo() {
 					</Grid>
 				))}
 			</Grid>
-			<Container
-				maxWidth={"lg"}
-				sx={{
-					marginTop: 2,
-				}}
-			>
-				<Box sx={{ flex: 1 }}>
-					{data?.features.map((feature) => (
-						<ListItem key={feature.id}>{feature.text}</ListItem>
-					))}
-				</Box>
-
-				<CardContent>
-					<Button onClick={handleOpen} variant="outlined">
-						Reserve
-					</Button>
-				</CardContent>
-			</Container>
-			<BookingModal hotelInfo={data} open={open} handleClose={handleClose} />
-			<Toaster
-				position="top-right"
-				toastOptions={{
-					duration: 1500,
-					style: {
-						fontSize: 14,
-					},
-				}}
-			/>
+			
 		</Box>
 	);
 }
