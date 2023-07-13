@@ -16,6 +16,7 @@ import Sidebar from "./scenes/global/Sidebar";
 import Topbar from "./scenes/global/Topbar";
 import Invoices from "./scenes/invoices";
 import { ColorModeContext, useMode } from "./theme";
+// import { ImageGallery } from "./pages/ImageGallery";
 
 function App() {
 	const [theme, colorMode] = useMode();
@@ -41,14 +42,15 @@ function App() {
 										element={<Signup setAuth={setAuth} />}
 									/>
 									<Route path="/dashboard" element={<Dashboard />} />
-									<Route path="/hotelinfo" element={<HotelInfo />} />
+					
 									<Route path="/geography" element={<Geography />} />
 									<Route path="/calendar" element={<Calendar />} />
 									<Route path="/faq" element={<FAQ />} />
 									<Route path="/invoices" element={<Invoices />} />
 									<Route path="/bar" element={<ComponentList />} />
 									<Route path="/my-profile" element={<MyProfile />} />
-									<Route path="/hostels" element={<HotelInfo />} />
+									{ <Route path="/hostels" element={<HotelInfo />} />  }
+									{/* <Route path ="/hostels" element={<ImageGallery />} /> */}
 								</Routes>
 							</main>
 						</div>

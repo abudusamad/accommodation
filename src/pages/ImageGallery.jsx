@@ -1,18 +1,24 @@
 import { Grid} from "@mui/material";
 import React from "react";
+import { bookings } from "../data/dummy";
 
-export const ImageGallery = ({ images }) => {
+export const ImageGallery = () => {
   return (
-    <Grid container spacing={1}>
-      {images?.map((image) => (
-        <Grid key={image.id} item md={4} xs={12}>
-          <img
-            loading="lazy"
-            src={image.img}
-            style={{ width: "100%", height: "100%" }}
-          />
-        </Grid>
-      ))}
-    </Grid>
-  );
+		<Grid container spacing={0}>
+			{bookings?.map((booking, index) => (
+				<Grid key={index.id} xs={12} md={4}>
+					<img
+						src={booking.image}
+            alt={ `Hostel ${index + 1}` }
+            className="p-4"
+						style={{
+							width: "auto",
+              height: "100%",
+              
+						}}
+					/>
+				</Grid>
+			))}
+		</Grid>
+	);
 };

@@ -476,42 +476,42 @@ export const customersGrid = [
 
 
 export const bookings = [
-	[
+
+	
 		{
-			name: "Brunei-Complex",
-			address: "123 Street, City A",
-			price: "$200",
-			image: product10,
-			likes: <StarIcon />,
-			dislikes: <StarHalfIcon />,
-			location: <LocationOnIcon />,
-			wifi: <WifiIcon />,
-			bed: <SingleBedIcon />,
-			favourite: <FavoriteBorderIcon />,
-			number: "2 bed",
-			rating: "4.9",
-			reviews: "300 reviews",
-			namLoc: "Knust",
-			available: "No Wifi ",
+			image: product1,
 		},
-	],
-	[
 		{
-			
-			image: product10,
-			likes: <StarIcon />,
-			dislikes: <StarHalfIcon />,
-			location: <LocationOnIcon />,
-			wifi: <WifiIcon />,
-			bed: <SingleBedIcon />,
-			favourite: <FavoriteBorderIcon />,
-			number: "2 bed",
-			rating: "4.9",
-			reviews: "300 reviews",
-			namLoc: "Knust",
-			available: "No Wifi ",
+			image: product2,
 		},
-	],
+		{
+			image: product3,
+		},
+
+		{
+			image: product4,
+		},
+
+		{
+			image: product5,
+		},
+
+		{
+			image: product6,
+		},
+
+		{
+			image: product7,
+		},
+		{
+			image: product8,
+		},
+
+		{
+			image: product9,
+		},
+	
+	
 ];
 
 export const hostels = [
