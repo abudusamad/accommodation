@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import { LoadingSkeleton } from "./components/LoadingSkeleton";
 import Login from "./pages/Home/Login";
 import Signup from "./pages/Home/Signup";
+import { ImageGallery } from "./pages/ImageGallery";
 import MyProfile from "./pages/register/MyProfile.jsx";
 import ComponentList from "./scenes/bar";
 import Calendar from "./scenes/calendar/calendar";
@@ -15,15 +16,11 @@ import Sidebar from "./scenes/global/Sidebar";
 import Topbar from "./scenes/global/Topbar";
 import Invoices from "./scenes/invoices";
 import { ColorModeContext, useMode } from "./theme";
- import { ImageGallery } from "./pages/ImageGallery";
-
 function App() {
 	const [theme, colorMode] = useMode();
 	const [isSidebar, setIsSidebar] = useState(true);
 	const [setAuth] = useState(false);
-
 	const queryClient = new QueryClient();
-
 	return (
 		<ColorModeContext.Provider value={colorMode}>
 			<ThemeProvider theme={theme}>
@@ -41,15 +38,13 @@ function App() {
 										element={<Signup setAuth={setAuth} />}
 									/>
 									<Route path="/dashboard" element={<Dashboard />} />
-					
 									<Route path="/geography" element={<Geography />} />
 									<Route path="/calendar" element={<Calendar />} />
 									<Route path="/faq" element={<FAQ />} />
 									<Route path="/invoices" element={<Invoices />} />
 									<Route path="/bar" element={<ComponentList />} />
 									<Route path="/my-profile" element={<MyProfile />} />
-								
-									<Route path ="/hostels" element={<ImageGallery />} />
+									<Route path="/hostels" element={<ImageGallery />} />
 								</Routes>
 							</main>
 						</div>

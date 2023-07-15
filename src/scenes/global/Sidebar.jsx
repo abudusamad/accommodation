@@ -72,7 +72,7 @@ const Sidebar = () => {
 			{activeMenu && (
 				<>
 					<ProSidebar collapsed={isCollapsed}>
-						<Menu iconShape="square" className="fixed left-0 top-0">
+						<Menu iconShape="square">
 							{/* LOGO AND MENU ICON */}
 							<MenuItem
 								onClick={() => setIsCollapsed(!isCollapsed)}
@@ -92,8 +92,9 @@ const Sidebar = () => {
 								}}
 							></MenuItem>
 							<Box
-								paddingLeft={isCollapsed ? undefined : "10%"}
+								paddingLeft={isCollapsed ? undefined : "2%"}
 								onClick={handleCloseSideBar}
+						
 							>
 								<Item
 									title="Dashboard"
@@ -111,6 +112,7 @@ const Sidebar = () => {
 									variant="h6"
 									color={colors.grey[300]}
 									sx={{ m: "15px 0 5px 20px" }}
+									display="none"
 								>
 									Data
 								</Typography>
