@@ -70,9 +70,8 @@ export const ImageGallery = ({ images }) => {
 					</CardContent>
 				</Box>
 			</Box>
-      <BookingModal hotelInfo={ data } open={ open } handleClose={ handleClose } />
+			<BookingModal hotelInfo={data} open={open} handleClose={handleClose} />
 
-      
 			<Toaster
 				position="top-right"
 				toastOptions={{
