@@ -20,7 +20,6 @@ import { LoadingSpinner } from "../components/LoadingSpinner";
 import { toast } from "react-hot-toast";
 import { bookModalStyle } from "../helper/styles";
 import { useNavigate } from "react-router-dom";
-
 export const BookingModal = ({ open, handleClose, hotelInfo }) => {
 	const { currentUser } = useContext(AuthContext);
 	const navigate = useNavigate();
@@ -99,11 +98,11 @@ export const BookingModal = ({ open, handleClose, hotelInfo }) => {
 		>
 			<Box sx={bookModalStyle}>
 				<Typography id="modal-modal-title" variant="h6" component="h2">
-					${hotelInfo?.pricePerNight} /Per Year
+					${hotelInfo?.pricePerNight} /night
 				</Typography>
 				<FormControl fullWidth sx={{ marginTop: 3 }}>
 					<InputLabel id="demo-simple-select-label">
-						Number of Student
+						Number of Guests
 					</InputLabel>
 					<Select
 						labelId="demo-simple-select-label"
@@ -144,7 +143,7 @@ export const BookingModal = ({ open, handleClose, hotelInfo }) => {
 						variant="h6"
 					>
 						${hotelInfo?.pricePerNight} x{" "}
-						{dates[0]?.endDate ? getTotalNightsBooked() : 0} Per Year
+						{dates[0]?.endDate ? getTotalNightsBooked() : 0} nights
 					</Typography>
 
 					<Typography
