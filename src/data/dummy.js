@@ -476,39 +476,43 @@ export const customersGrid = [
 
 
 export const bookings = [
-		{
-			image: product1,
-		},
-		{
-			image: product2,
-		},
-		{
-			image: product3,
-		},
+	{
+		image: product1,
+		text: "Study Room",
+	},
+	{
+		image: product2,
+		text: "Study Room",
+	},
 
-		{
-			image: product4,
-		},
+	{
+		image: product4,
+		text: "Study Room",
+	},
 
-		{
-			image: product5,
-		},
+	{
+		image: product5,
+		text: "Study Room",
+	},
 
-		{
-			image: product6,
-		},
+	{
+		image: product6,
+		text: "Study Room",
+	},
 
-		{
-			image: product7,
-		},
-		{
-			image: product8,
-		},
+	{
+		image: product7,
+		text: "Study Room",
+	},
+	{
+		image: product8,
+		text: "Study Room",
+	},
 
-		{
-			image: product9,
-		},
-
+	{
+		image: product9,
+		text: "Study Room",
+	},
 ];
 
 export const hostels = [

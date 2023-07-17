@@ -12,6 +12,7 @@ import { useQuery } from "react-query";
 import { BookingModal } from "../components/BookingModal";
 import { bookings } from "../data/dummy";
 import { tokens } from "../theme";
+
 export const ImageGallery = ({ images }) => {
 	const [open, setOpen] = useState(false);
 	const theme = useTheme();
@@ -38,8 +39,17 @@ export const ImageGallery = ({ images }) => {
 								width: "auto",
 								height: "100%",
 							}}
-							className="p-3"
+							className="p-3 rounded after:bg-black after:absolute top-0 left-0 after:opacity-0 after: translate-x-7 hover:opacity-100"
 						/>
+						<Box>
+							<Typography
+								variant="h2"
+								sx={{ zIndex: "1000" }}
+								className="opacity-0 translate-x-3 hover:opacity-100 text-6xl text-white flex  mx-96 px-52 mt-52"
+							>
+								{Booking.text}
+							</Typography>
+						</Box>
 					</Grid>
 				))}
 			</Grid>
