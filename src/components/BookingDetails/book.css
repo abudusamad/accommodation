@@ -1,0 +1,101 @@
+.room-booking-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+
+label {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+select {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
+.selected-room-container {
+  margin: 1rem 0;
+}
+
+.selected-room-container h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.selected-room-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.selected-room-container ul li {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+.date-select-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.date-select-container label {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+.parking-container {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.parking-container label {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+.room-select-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+label {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+select {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  transition: border-color 0.2s ease-in-out;
+}
+
+select:focus {
+  outline: none;
+  border-color: #0066cc;
+}
