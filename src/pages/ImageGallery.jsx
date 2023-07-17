@@ -12,6 +12,7 @@ import { useQuery } from "react-query";
 import { BookingModal } from "../components/BookingModal";
 import { bookings } from "../data/dummy";
 import { tokens } from "../theme";
+import  Reserve from "../components/reserve/Reserve"
 
 export const ImageGallery = ({ images }) => {
 	const [open, setOpen] = useState(false);
@@ -78,6 +79,7 @@ export const ImageGallery = ({ images }) => {
 							Reserve
 						</Button>
 					</CardContent>
+					<Reserve/>
 				</Box>
 			</Box>
 			<BookingModal hotelInfo={data} open={open} handleClose={handleClose} />

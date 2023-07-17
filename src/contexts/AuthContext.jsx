@@ -20,7 +20,7 @@ export const AuthContextProvider = ({ children}) => {
 
 
   return (
-    <AuthContext.Provider value={ { currentUseruser: state.user,
+    <AuthContext.Provider value={ {currentUser, currentUseruser: state.user,
         loading: state.loading,
         error: state.error,
         dispatch, } }>
