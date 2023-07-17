@@ -12,7 +12,6 @@ import { useQuery } from "react-query";
 import { BookingModal } from "../components/BookingModal";
 import { bookings } from "../data/dummy";
 import { tokens } from "../theme";
-
 export const ImageGallery = ({ images }) => {
 	const [open, setOpen] = useState(false);
 	const theme = useTheme();
