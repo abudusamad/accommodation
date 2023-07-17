@@ -33,6 +33,7 @@ const ComponentList = () => {
 		const startIndex = (currentPage - 1) * itemsPerPage;
 		const endIndex = startIndex + itemsPerPage;
 		const itemsToRender = data.slice(startIndex, endIndex);
+		
 
 		return itemsToRender.map((item, index) => <div key={index}>{item}</div>);
 	};
