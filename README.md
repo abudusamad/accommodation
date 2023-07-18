@@ -182,7 +182,6 @@ Seed the data
 yarn seed
 ```
 
-For Google OAuth you will need to register an application with Google. See [passport-google-oauth2](https://github.com/jaredhanson/passport-google-oauth2) for further instructions.
 
 Go to the `api` folder and start the server.
 ```
@@ -219,9 +218,7 @@ From then we began thinking about what documents and fields would be needed for 
 
 Using Trello we began adding all tasks and delegating work between each member of the team.
 
-[Trello Board](https://trello.com/b/7Wo4BQjs)
 
-![Project Work Breakvbown](docs/RoomBookingSystem-ProjectWorkBreakdown.png)
 
 ### Audience
 - Management staff
@@ -305,24 +302,12 @@ Using Trello we began adding all tasks and delegating work between each member o
 ### Entity Relationship Diagram
 
 #### Version 1
-![Entity Relationship Diagram | Version 1](docs/RoomBookingSystem-ERD-v1.png)
-#### Version 2
-![Entity Relationship Diagram | Version 2](docs/RoomBookingSystem-ERD-v2.png)
+
 ## Design
 We designed the application to be an intuitive and simple, yet powerful way to navigate, analyse and create bookings. This ultimately enables the efficient use of resources.
 
 ### Wireframes
 
-[View wireframes in Figma](https://www.figma.com/file/M5AfR3iuOLO437LBDP1p9IXX/Room-Booking-System-Final)
-#### Room View
-![Desktop | Room View](docs/Desktop-RoomView.png)
-
-#### Booking View
-![Desktop | Booking View](docs/Desktop-BookingView.png)
-
-### Prototype
-[View prototype in Figma](https://www.figma.com/proto/M5AfR3iuOLO437LBDP1p9IXX/Room-Booking-System-Final?scaling=contain&node-id=13%3A966)
-## Development
 
 ### Requirements
 [x] Backend - Node.js
@@ -336,7 +321,6 @@ We designed the application to be an intuitive and simple, yet powerful way to n
 [x] README
 
 ### Trello
-![Trello | Room Booking System](docs/RoomBookingSystem-Trello.png)
 
 ### Technologies
 - Node.js
@@ -363,7 +347,3 @@ We designed the application to be an intuitive and simple, yet powerful way to n
 - CMS
 - Google Calendar
 
-## Team
-- [George](https://github.com/tagma-1)
-- [Nick](https://github.com/nick-son)
-- [Julia](https://github.com/julia-)
