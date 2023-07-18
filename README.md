@@ -1,3 +1,4 @@
+![hnh-accommodation_ERD-V2](https://github.com/abudusamad/accommodation/assets/82134715/6b1ceb07-1043-4488-afd9-b922884ac71f)
 # Room Booking System
 A room booking system built with Postgress,Axios, Firebase, Express, Node.js and ReactJS.
 
@@ -346,4 +347,6 @@ We designed the application to be an intuitive and simple, yet powerful way to n
 - Editing bookings
 - CMS
 - Google Calendar
+![Uploading hnh-accommodation-breakdown.png…]()
+![Uploading hnh-accommaodation-ERD-v1.png…]()
 
