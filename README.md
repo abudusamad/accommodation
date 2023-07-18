@@ -1,10 +1,5 @@
 # Room Booking System
-A room booking system built with MongoDB, Express, Node.js and ReactJS.
-
-![Logo](docs/logo.png)
-
-[Presentation](http://slides.com/juliaryan/room-booking-system/fullscreen)
-## Table of Contents
+A room booking system built with Postgress,Axios, Firebase, Express, Node.js and ReactJS.
 
 * [Getting started](#getting-started)
   * [Prerequisites](#prerequisites)
