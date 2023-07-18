@@ -30,10 +30,13 @@ export const ImageGallery = ({ images }) => {
 		<Box width="98%">
 			<Grid container spacing={0}>
 				{bookings?.map((Booking, index) => (
-					<Grid key={index.id} md={4} xs={12}>
+					<Grid key={ index.id } md={ 4 } xs={ 12 }>
+						
 						<img
+						
 							src={Booking.image}
-							alt={`Hostel ${Booking + 1}`}
+							alt={ `Hostel ${Booking + 1}` }
+							key={index.id}
 							style={{
 								width: "auto",
 								height: "98%",
@@ -41,7 +44,6 @@ export const ImageGallery = ({ images }) => {
 							className="p-3"
 							sx={{backgroundColor:colors.grey[400]}}
 						/>
-						
 					</Grid>
 				))}
 			</Grid>
