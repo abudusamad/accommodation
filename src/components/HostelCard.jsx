@@ -122,7 +122,7 @@ const HostelList = () => {
 										
 									>
 										<span>{hostel.rating}</span>
-										<Typography variant="body2" sx={{ paddingLeft: "0.5rem" }}>
+										<Typography variant="body2" >
 											{hostel.reviews}
 										</Typography>
 									</Box>
