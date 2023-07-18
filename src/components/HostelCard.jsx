@@ -4,17 +4,23 @@ import { Box, Grid, IconButton, Tooltip, Typography } from "@mui/material";
 import InputBase from "@mui/material/InputBase";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 import { hostels } from "../data/dummy";
 import { tokens } from "../theme";
+const HeartIcon = styled.span`
+	color: ${(props) => (props.liked ? "red" : "gray")};
+`;
 
 const HostelList = () => {
 	const theme = useTheme();
 	const colors = tokens(theme.palette.mode);
 	const [likedItems, setLikedItems] = useState([]);
-	 const [query, setQuery] = useState("");
+	const [query, setQuery] = useState("");
 	const [filteredData, setFilteredData] = useState(hostels);
+	const [liked, setLiked] = useState(false);
 	const handleLike = (index) => {
 		const isLiked = likedItems.includes(index);
+		setLiked(!liked);
 
 		if (isLiked) {
 			const updatedItems = likedItems.filter((id) => id !== index);
@@ -76,21 +82,21 @@ const HostelList = () => {
 								alt={`Hostel ${index + 1}`}
 								style={{
 									width: "auto",
-									height: "60%",
+									height: "auto",
 								}}
 								onClick={() => navigate("/hostels")}
 								key={hostel.id}
 							/>
 							<Box display="flex" flexDirection="column">
 								<Typography
-									variant="h2 "
+									variant="body1"
 									color={colors.greenAccent[200]}
 									fontWeight="bold"
-									className="pt-2 pb-2 pl-3 uppercase"
+									className="pt-2 pb-2 pl-3 capitalize"
 								>
 									{hostel.name}
 								</Typography>
-								<Typography variant="h5" className="pl-3">
+								<Typography variant="body1" className="pl-3">
 									{hostel.address}
 								</Typography>
 								<Box
@@ -98,6 +104,9 @@ const HostelList = () => {
 									alignhostel="center"
 									color={colors.grey[100]}
 									fontWeight="bold"
+									fontSize="0.654rem"
+									textOverflow="none"
+									overflow="none"
 								>
 									<IconButton>{hostel.likes} </IconButton>
 									<IconButton>{hostel.likes}</IconButton>
@@ -108,20 +117,23 @@ const HostelList = () => {
 										display="flex"
 										alignItems="center"
 										justifyContent="center"
+										fontSize="0.654rem"
+										flexWrap="wrap"
+										
 									>
 										<span>{hostel.rating}</span>
-										<Typography variant="h6" sx={{ paddingLeft: "4px" }}>
+										<Typography variant="body2" sx={{ paddingLeft: "0.5rem" }}>
 											{hostel.reviews}
 										</Typography>
 									</Box>
 								</Box>
-								<Box display="flex">
+								<Box display="flex" >
 									<Box>
 										<Tooltip title={hostel.namLoc}>
 											<IconButton>{hostel.location}</IconButton>
 										</Tooltip>
 									</Box>
-									<Box>
+									<Box fontSize="0.652rem">
 										<Tooltip title={hostel.number}>
 											<IconButton>{hostel.bed}</IconButton>
 										</Tooltip>
@@ -132,28 +144,23 @@ const HostelList = () => {
 										</Tooltip>
 									</Box>
 									<Box className="flex">
-										<button
+										<IconButton
 											onClick={() => handleLike(index)}
-											className={likedItems.includes(index) ? "Liked" : ""}
+											className="text-xl"
 										>
-											{likedItems.includes(index) ? "Liked" : "like"}
-											<IconButton>{hostel.favourite}</IconButton>
-										</button>
-										<Box
-											display="flex"
+											<HeartIcon liked={likedItems.includes(index)}>
+												&#9829;
+											</HeartIcon>
+										</IconButton>
+										<Typography
 											color={colors.grey[100]}
-											className="pt-2"
+											fontWeight="bold"
+											margin=" 0 5px"
+											fontSize=".752rem"
+											className="pt-3"
 										>
-											<Typography
-												variant="h5"
-												color={colors.grey[100]}
-												fontWeight="bold"
-												margin=" 0 5px"
-											>
-												{hostel.price}
-											</Typography>
-											<span>AUD Total</span>
-										</Box>
+											{hostel.price}
+										</Typography>
 									</Box>
 								</Box>
 							</Box>

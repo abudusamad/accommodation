@@ -167,11 +167,11 @@ export const themeSettings = (mode) => {
       fontSize: 12,
       h1: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-        fontSize: 40,
+        fontSize: 30,
       },
       h2: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-        fontSize: 32,
+        fontSize: 28,
       },
       h3: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
@@ -187,7 +187,7 @@ export const themeSettings = (mode) => {
       },
       h6: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-        fontSize: 14,
+        fontSize: 12,
       },
     },
   };
