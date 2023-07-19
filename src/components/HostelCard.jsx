@@ -68,14 +68,15 @@ const HostelList = () => {
 					</IconButton>
 				</Box>
 			</Box>
-			<Box sx={{ flexGrow: 1 }}>
+			<Box sx={{ flexGrow: 1 }} >
 				<Grid container spacing={1}>
 					{(hostels, filteredData).map((hostel, index) => (
 						<Grid
 							xs={12}
 							md={3}
-							className="mx-3 my-5 rounded-2xl  shadow-2xl"
+							className="mx-3 my-5 rounded-2xl  shadow-2xl px-3"
 							sx={{ backgroundColor: colors.primary[400] }}
+							
 						>
 							<img
 								src={hostel.image}
@@ -84,7 +85,6 @@ const HostelList = () => {
 									width: "auto",
 									height: "auto",
 								}}
-								onClick={() => navigate("/hostels")}
 								key={hostel.id}
 							/>
 							<Box display="flex" flexDirection="column">
@@ -107,6 +107,7 @@ const HostelList = () => {
 									fontSize="0.654rem"
 									textOverflow="none"
 									overflow="none"
+									onClick={() => navigate("/hostels")}
 								>
 									<IconButton>{hostel.likes} </IconButton>
 									<IconButton>{hostel.likes}</IconButton>
@@ -119,15 +120,17 @@ const HostelList = () => {
 										justifyContent="center"
 										fontSize="0.654rem"
 										flexWrap="wrap"
-										
+										overflow="none"
+										textOverflow="none"
+										className="md:overflow-hidden"
 									>
 										<span>{hostel.rating}</span>
-										<Typography variant="body2" >
+										<Typography variant="body2" sx={{ paddingLeft: "0.2rem" }}>
 											{hostel.reviews}
 										</Typography>
 									</Box>
 								</Box>
-								<Box display="flex" >
+								<Box display="flex">
 									<Box>
 										<Tooltip title={hostel.namLoc}>
 											<IconButton>{hostel.location}</IconButton>
@@ -143,7 +146,7 @@ const HostelList = () => {
 											<IconButton>{hostel.wifi}</IconButton>
 										</Tooltip>
 									</Box>
-									<Box className="flex">
+									<Box className="flex ">
 										<IconButton
 											onClick={() => handleLike(index)}
 											className="text-xl"
