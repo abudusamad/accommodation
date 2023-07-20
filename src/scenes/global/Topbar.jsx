@@ -19,16 +19,16 @@ import {
 } from "@mui/material";
 import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../contexts/AuthContext";
 import { useStateContext } from "../../contexts/ContextProvider";
-import { auth } from "../../lib/firebase";
+import { auth, useAuth } from "../../lib/firebase";
 import { ColorModeContext, tokens } from "../../theme";
 
 const Topbar = () => {
 	const theme = useTheme();
 	const colors = tokens(theme.palette.mode);
 	const colorMode = useContext(ColorModeContext);
-	const { currentUser } = useContext(AuthContext);
+
+	const currentUser = useAuth();
 	const { activeMenu, setActiveMenu, setScreenSize, screenSize } =
 		useStateContext();
 
@@ -110,7 +110,7 @@ const Topbar = () => {
 					<Tooltip title="UserProfile">
 						<Avatar
 							src={currentUser?.photoURL}
-							sx={{ width:32, height:32 }}
+							sx={{ width: 32, height: 32 }}
 						/>
 					</Tooltip>
 				</IconButton>
