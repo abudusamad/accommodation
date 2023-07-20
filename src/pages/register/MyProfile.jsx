@@ -21,6 +21,10 @@ import { db } from "../../lib/firebase";
 // 	getDate,
 // 	getDay,
 // } from "date-fns";
+import "firebase/firestore";
+import firebase from "firebase/app";
+import "firebase/auth";
+
 
 function createData(
 	HotelName,
@@ -66,6 +70,26 @@ export default function MyProfile() {
 			unsubscribe();
 		};
 	}, [currentUser]);
+	  const [profilePictureURL, setProfilePictureURL] = useState("");
+
+		useEffect(() => {
+			const user = firebase.auth().currentUser;
+			if (user) {
+				const db = firebase.firestore();
+				db.collection("users")
+					.doc(user.uid)
+					.get()
+					.then((doc) => {
+						if (doc.exists) {
+							const data = doc.data();
+							setProfilePictureURL(data.profilePictureURL);
+						}
+					})
+					.catch((error) => {
+						// Handle error
+					});
+			}
+		}, []);
 
 	return (
 		<>
@@ -89,6 +113,9 @@ export default function MyProfile() {
 						alt={currentUser?.displayName}
 					/>
 					<Typography variant={"h6"}>{currentUser?.displayName}</Typography>
+					<Box>
+						{profilePictureURL && <img src={profilePictureURL} alt="Profile" />}
+					</Box>
 				</Box>
 				<Typography marginTop={3} fontWeight={"bold"} variant={"h6"}>
 					Booking History
