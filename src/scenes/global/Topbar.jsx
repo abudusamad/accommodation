@@ -3,7 +3,6 @@ import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import {
@@ -140,7 +139,10 @@ const Topbar = () => {
 						>
 							<IconButton>
 								<Tooltip title="UserProfile">
-									<PersonOutlineOutlinedIcon />
+									<Avatar
+										src={currentUser?.photoURL}
+										sx={{ width: 32, height: 32 }}
+									/>
 								</Tooltip>
 							</IconButton>
 						</MenuItem>

@@ -83,14 +83,14 @@ export default function MyProfile() {
 					<img
 						style={{
 							borderRadius: "100%",
-							width: 60,
-							height: 60,
+							width: 100,
+							height: 100,
 							objectFit: "cover",
 						}}
 						src={currentUser?.photoURL}
 						alt={currentUser?.displayName}
 					/>
-					<Typography variant={"h6"}>{currentUser?.displayName}</Typography>
+					<Typography variant={"h5"}>{currentUser?.displayName}</Typography>
 					<div className="fields">
 						<input type="file" onChange={handleChange} />
 						<button disabled={loading || !photo} onClick={handleClick}>
