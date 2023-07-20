@@ -1,19 +1,17 @@
 import {
+	Box,
 	Container,
+	Paper,
 	Table,
 	TableBody,
 	TableCell,
 	TableContainer,
 	TableHead,
 	TableRow,
-	Paper,
-	Box,
 	Typography,
 } from "@mui/material";
-import { collection, onSnapshot, query, where } from "firebase/firestore";
-import React, { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../contexts/AuthContext";
-import { db } from "../../lib/firebase";
+import React, { useEffect, useState } from "react";
+import { upload, useAuth } from "../../lib/firebase";
 // import {
 // 	formatDistance,
 // 	formatDistanceToNow,
@@ -21,7 +19,6 @@ import { db } from "../../lib/firebase";
 // 	getDate,
 // 	getDay,
 // } from "date-fns";
-
 
 function createData(
 	HotelName,
@@ -46,26 +43,29 @@ const rows = [
 ];
 
 export default function MyProfile() {
-	const { currentUser } = useContext(AuthContext);
-	const [bookings, setBookings] = useState([]);
+	// const { currentUser } = useContext(AuthContext);
+	const [bookings] = useState([]);
+  const currentUser = useAuth();
+	const [photo, setPhoto] = useState(null);
+	const [loading, setLoading] = useState(false);
+	const [photoURL, setPhotoURL] = useState(
+		"https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+	);
+
+	function handleChange(e) {
+		if (e.target.files[0]) {
+			setPhoto(e.target.files[0]);
+		}
+	}
+
+	function handleClick() {
+		upload(photo, currentUser, setLoading);
+	}
 
 	useEffect(() => {
-		if (!currentUser) return;
-		const bookings = query(
-			collection(db, "bookings"),
-			where("hostel.uid", "==", currentUser?.uid)
-		);
-		const unsubscribe = onSnapshot(bookings, (snapshot) => {
-			setBookings(
-				snapshot.docs
-					.map((doc) => ({ data: doc.data() }))
-					.sort((a, b) => b.bookingEndDate - a.bookingStartDate)
-			);
-		});
-
-		return () => {
-			unsubscribe();
-		};
+		if (currentUser?.photoURL) {
+			setPhotoURL(currentUser.photoURL);
+		}
 	}, [currentUser]);
 
 
@@ -91,7 +91,12 @@ export default function MyProfile() {
 						alt={currentUser?.displayName}
 					/>
 					<Typography variant={"h6"}>{currentUser?.displayName}</Typography>
-					
+					<div className="fields">
+						<input type="file" onChange={handleChange} />
+						<button disabled={loading || !photo} onClick={handleClick}>
+							Upload
+						</button>
+					</div>
 				</Box>
 				<Typography marginTop={3} fontWeight={"bold"} variant={"h6"}>
 					Booking History
