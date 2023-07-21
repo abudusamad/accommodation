@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { hostels } from "../data/dummy";
+import Recommended from "../pages/register/Recommended";
 import { tokens } from "../theme";
 const HeartIcon = styled.span`
 	color: ${(props) => (props.liked ? "red" : "gray")};
@@ -50,7 +51,7 @@ const HostelList = () => {
 
 	return (
 		<div>
-			<Box className="my-4 w-52 relative left-0 ">
+			<Box className="my-4 w-52 relative left-0 " flex justifyContent="space-between">
 				<Box
 					display="flex"
 					backgroundColor={colors.primary[400]}
@@ -67,8 +68,12 @@ const HostelList = () => {
 						<SearchIcon />
 					</IconButton>
 				</Box>
+				<Box>
+					<Recommended />
+				</Box>
 			</Box>
-			<Box sx={{ flexGrow: 1 }} >
+
+			<Box sx={{ flexGrow: 1 }}>
 				<Grid container spacing={1}>
 					{(hostels, filteredData).map((hostel, index) => (
 						<Grid
@@ -76,7 +81,6 @@ const HostelList = () => {
 							md={3}
 							className="mx-3 my-5 rounded-2xl  shadow-2xl px-3"
 							sx={{ backgroundColor: colors.primary[400] }}
-							
 						>
 							<img
 								src={hostel.image}
@@ -87,6 +91,7 @@ const HostelList = () => {
 								}}
 								key={hostel.id}
 							/>
+
 							<Box display="flex" flexDirection="column">
 								<Typography
 									variant="body1"
