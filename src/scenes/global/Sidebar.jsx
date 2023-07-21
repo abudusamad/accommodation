@@ -9,13 +9,14 @@ import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
-import { Box, Tooltip, Typography, useTheme } from "@mui/material";
+import { Box, Tooltip, IconButton,Typography, useTheme } from "@mui/material";
 import { useState } from "react";
 import { Menu, MenuItem, ProSidebar } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
 import { Link } from "react-router-dom";
 import { useStateContext } from "../../contexts/ContextProvider";
 import { tokens } from "../../theme";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
 	const theme = useTheme();
@@ -72,7 +73,7 @@ const Sidebar = () => {
 			{activeMenu && (
 				<>
 					<ProSidebar collapsed={isCollapsed}>
-						<Menu iconShape="square">
+							<Menu iconShape="square">
 							{/* LOGO AND MENU ICON */}
 							<MenuItem
 								onClick={() => setIsCollapsed(!isCollapsed)}
@@ -87,10 +88,28 @@ const Sidebar = () => {
 									) : undefined
 								}
 								style={{
-									margin: "5px 0 5px 0",
+									margin: "10px 0 20px 0",
 									color: colors.grey[100],
 								}}
-							></MenuItem>
+							>
+								{!isCollapsed && (
+									<Box
+										display="flex"
+										justifyContent="space-between"
+										alignItems="center"
+										ml="15px"
+									>
+										<Typography variant="h2" color={colors.grey[100]}>
+											HnH
+										</Typography>
+										<IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
+											<Tooltip title="Close Menu">
+												<CloseIcon />
+											</Tooltip>
+										</IconButton>
+									</Box>
+								)}
+							</MenuItem>
 							<Box
 								paddingLeft={isCollapsed ? undefined : "2%"}
 								onClick={handleCloseSideBar}
