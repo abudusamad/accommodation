@@ -51,7 +51,11 @@ const HostelList = () => {
 
 	return (
 		<div>
-			<Box className="my-4 w-52 relative left-0 " flex justifyContent="space-between">
+			<Box
+				className="my-4 w-52 relative left-0 "
+				flex
+				justifyContent="space-between"
+			>
 				<Box
 					display="flex"
 					backgroundColor={colors.primary[400]}
@@ -68,9 +72,9 @@ const HostelList = () => {
 						<SearchIcon />
 					</IconButton>
 				</Box>
-				<Box>
-					<Recommended />
-				</Box>
+			</Box>
+			<Box className="absolute top-10  left-56">
+				<Recommended />
 			</Box>
 
 			<Box sx={{ flexGrow: 1 }}>
