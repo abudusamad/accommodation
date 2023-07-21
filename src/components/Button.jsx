@@ -8,7 +8,7 @@ const Button = ({ onClickHandler, value, title }) => {
 		<button
 			onClick={onClickHandler}
 			value={value}
-            className="p-3 mr-3 bg-transparent border-0 rounded-md cursor-pointer bg-gray-700"
+            className="p-3 mr-3 bg-transparent border-0 rounded-md cursor-pointer bg-slate-100"
             color={ colors.primary[400] }
             backgroundColor={colors.primary[400]}
 		>

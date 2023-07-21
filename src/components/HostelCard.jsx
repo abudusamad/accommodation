@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { hostels } from "../data/dummy";
-import Recommended from "../pages/register/Recommended";
+import Recommended from "../pages/Recommended/Recommended";
 import { tokens } from "../theme";
 const HeartIcon = styled.span`
 	color: ${(props) => (props.liked ? "red" : "gray")};
