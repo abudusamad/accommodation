@@ -24,7 +24,7 @@ const Recommended = ({ handleClick }) => {
 		<>
 			<div>
 				<h2 className="recommended-title">Recommended</h2>
-				<Box className="recommended-flex" sx={{ color: colors.grey[400] }}>
+				<Box className="recommended-flex">
 					<Buttons
 						onClickHandler={handleClick}
 						value=""
@@ -40,7 +40,10 @@ const Recommended = ({ handleClick }) => {
 					<Button
 						onClick={handleOpen}
 						variant="outlined"
-						sx={{ color: colors.grey[400] }}
+						sx={{
+							color: colors.grey[400],
+							":hover": " background-color: rgb(218, 218, 218)",
+						}}
 					>
 						Filter
 					</Button>

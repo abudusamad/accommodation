@@ -14,4 +14,9 @@
   border-radius: 5px;
   color: rgb(93, 70, 70);
   cursor: pointer;
+  
+}
+
+.btns:hover{
+  background-color: rgb(218, 218, 218);
 }

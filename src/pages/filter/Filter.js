@@ -4,6 +4,7 @@ import "./Filter.css";
 import Price from "./Price/Price";
 
 const Filter = ({ handleChange, open, handleClose }) => {
+
 	return (
 		<>
 			<Modal
