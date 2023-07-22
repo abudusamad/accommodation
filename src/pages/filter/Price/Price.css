@@ -5,3 +5,13 @@
 .ml {
   margin-left: 20px;
 }
+.btns {
+  padding: 10px 20px;
+  margin-right: 6px;
+  background: transparent;
+  border: none;
+  border: 0.6px solid #ccc;
+  border-radius: 5px;
+  color: rgb(93, 70, 70);
+  cursor: pointer;
+}

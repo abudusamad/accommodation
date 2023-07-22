@@ -1,18 +1,17 @@
-import { Box, useTheme} from "@mui/material";
-import Button from "../../components/Button";
-import { tokens } from "../../theme";
-import "./Recommended.css";
+import { Box, Button, useTheme } from "@mui/material";
 import { useState } from "react";
 import { useQuery } from "react-query";
+import Buttons from "../../components/Button";
+import { tokens } from "../../theme";
 import Filter from "../filter/Filter";
+import "./Recommended.css";
 
 const Recommended = ({ handleClick }) => {
 	const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
-  const [open, setOpen] = useState(false);
+	const colors = tokens(theme.palette.mode);
+	const [open, setOpen] = useState(false);
 
-
-	const fetchHoteInfo = async () => {
+	const filtering = async () => {
 		return data;
 	};
 
@@ -20,33 +19,34 @@ const Recommended = ({ handleClick }) => {
 
 	const handleClose = () => setOpen(false);
 
-	const { data } = useQuery("hotel-info", fetchHoteInfo);
+	const { data } = useQuery("filer", filtering);
 	return (
 		<>
 			<div>
 				<h2 className="recommended-title">Recommended</h2>
-				<Box className="recommended-flex" backgroundColor={colors.primary[400]}>
-					<Button
+				<Box className="recommended-flex" sx={{ color: colors.grey[400] }}>
+					<Buttons
 						onClickHandler={handleClick}
 						value=""
 						title="Hostel & Homestel"
 					/>
-					<Button onClickHandler={handleClick} value="Hostel" title="Hostel" />
-					<Button
+					<Buttons onClickHandler={handleClick} value="Hostel" title="Hostel" />
+					<Buttons
 						onClickHandler={handleClick}
 						value="Homestel"
 						title="Homestel"
 					/>
+
 					<Button
 						onClick={handleOpen}
 						variant="outlined"
-						className="hover:bg-white"
-						sx={{ backgroundColor: "white" }}
-						title="Filter"
-					/>
+						sx={{ color: colors.grey[400] }}
+					>
+						Filter
+					</Button>
 				</Box>
-				<Filter hotelInfo={data} open={open} handleClose={handleClose} />
 			</div>
+			<Filter Filter={data} open={open} handleClose={handleClose} />
 		</>
 	);
 };
