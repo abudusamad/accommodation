@@ -571,7 +571,7 @@ export const hostels = [
 	{
 		name: "Brunei-Complex",
 		address: "123 Street, City A",
-		price: "$5000",
+		price: "Gh 5000",
 		image: product3,
 		likes: <StarIcon />,
 		dislikes: <StarHalfIcon />,
@@ -607,7 +607,7 @@ export const hostels = [
 	{
 		name: "Brunei-Complex",
 		address: "123 Street, City A",
-		price: "Gh 1500",
+		price: "Gh 2500",
 		image: product5,
 		likes: <StarIcon />,
 		dislikes: <StarHalfIcon />,
