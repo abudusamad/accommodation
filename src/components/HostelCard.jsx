@@ -1,16 +1,14 @@
 import { useTheme } from "@emotion/react";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import SearchIcon from "@mui/icons-material/Search";
 import { Box, Grid, IconButton, Tooltip, Typography } from "@mui/material";
 import InputBase from "@mui/material/InputBase";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import { hostels } from "../data/dummy";
 import Recommended from "../pages/Recommended/Recommended";
 import { tokens } from "../theme";
-const HeartIcon = styled.span`
-	color: ${(props) => (props.liked ? "red" : "gray")};
-`;
 
 const HostelList = () => {
 	const theme = useTheme();
@@ -21,7 +19,7 @@ const HostelList = () => {
 	const [liked, setLiked] = useState(false);
 	const handleLike = (index) => {
 		const isLiked = likedItems.includes(index);
-		setLiked(!liked);
+		setLiked(liked);
 
 		if (isLiked) {
 			const updatedItems = likedItems.filter((id) => id !== index);
@@ -52,15 +50,16 @@ const HostelList = () => {
 	return (
 		<div>
 			<Box
-				className="my-4 w-52 relative left-0 "
-				flex
+				display="flex"
 				justifyContent="space-between"
+				className="my-4 w-52 relative left-0 "
 			>
 				<Box
 					display="flex"
 					backgroundColor={colors.primary[400]}
 					borderRadius="3px"
 					marginLeft="10px"
+					zIndex="10"
 				>
 					<InputBase
 						sx={{ ml: 2, flex: 1, width: "75%" }}
@@ -73,7 +72,7 @@ const HostelList = () => {
 					</IconButton>
 				</Box>
 			</Box>
-			<Box className="absolute top-10  left-56">
+			<Box className="relative bottom-24 left-0">
 				<Recommended />
 			</Box>
 
@@ -102,6 +101,7 @@ const HostelList = () => {
 									color={colors.greenAccent[200]}
 									fontWeight="bold"
 									className="pt-2 pb-2 pl-3 capitalize"
+									key={hostel.id}
 								>
 									{hostel.name}
 								</Typography>
@@ -117,6 +117,7 @@ const HostelList = () => {
 									textOverflow="none"
 									overflow="none"
 									onClick={() => navigate("/hostels")}
+									key={hostel.id}
 								>
 									<IconButton>{hostel.likes} </IconButton>
 									<IconButton>{hostel.likes}</IconButton>
@@ -132,6 +133,7 @@ const HostelList = () => {
 										overflow="none"
 										textOverflow="none"
 										className="md:overflow-hidden"
+										key={hostel.id}
 									>
 										<span>{hostel.rating}</span>
 										<Typography variant="body2" sx={{ paddingLeft: "0.2rem" }}>
@@ -139,7 +141,7 @@ const HostelList = () => {
 										</Typography>
 									</Box>
 								</Box>
-								<Box display="flex">
+								<Box display="flex" key={hostel.id}>
 									<Box>
 										<Tooltip title={hostel.namLoc}>
 											<IconButton>{hostel.location}</IconButton>
@@ -158,11 +160,13 @@ const HostelList = () => {
 									<Box className="flex ">
 										<IconButton
 											onClick={() => handleLike(index)}
-											className="text-xl"
+											color={liked ? "error" : "default"}
 										>
-											<HeartIcon liked={likedItems.includes(index)}>
-												&#9829;
-											</HeartIcon>
+											{likedItems.includes(index) ? (
+												<FavoriteIcon />
+											) : (
+												<FavoriteBorderIcon />
+											)}
 										</IconButton>
 										<Typography
 											color={colors.grey[100]}
@@ -173,6 +177,14 @@ const HostelList = () => {
 										>
 											{hostel.price}
 										</Typography>
+										<Box
+											fontWeight="bold"
+											margin=" 0 5px"
+											fontSize=".752rem"
+											className="pt-3"
+										>
+											{hostel.category}
+										</Box>
 									</Box>
 								</Box>
 							</Box>
