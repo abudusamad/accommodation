@@ -93,11 +93,6 @@ const Topbar = () => {
 						<NotificationsOutlinedIcon onClick={() => handleClick} />
 					</Tooltip>
 				</IconButton>
-				<IconButton>
-					<Tooltip title="Settings">
-						<SettingsOutlinedIcon onClick={() => handleClick} />
-					</Tooltip>
-				</IconButton>
 				<IconButton
 					id="demo-positioned-menu"
 					onClick={handleClick}
