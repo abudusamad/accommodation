@@ -11,6 +11,8 @@ import LoginForm from "../../components/LoginForm";
 import SocialAuth from "../../components/SocialAuth";
 import { auth, db, provider } from "../../lib/firebase";
 import { tokens } from "../../theme";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const HeadingStyle = styled(Box)({
 	textAlign: "center",
@@ -86,7 +88,8 @@ const Login = ({ setAuth }) => {
 							OR Continue With
 						</Typography>
 					</Divider>
-					<Box component={motion.div} {...fadeInUp}>
+					<Box component={ motion.div } { ...fadeInUp }>
+						<ToastContainer />
 						<SocialAuth onClick={handleLogin} />
 					</Box>
 					<Typography

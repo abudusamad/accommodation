@@ -4,7 +4,6 @@ import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import {
 	AppBar,
 	Avatar,
