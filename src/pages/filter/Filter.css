@@ -1,7 +1,7 @@
 .filter {
   width: 15%;
   position: absolute;
-  height: 60%;
+  height: 70%;
   z-index: 3;
   display: flex;
   flex-direction: column;
