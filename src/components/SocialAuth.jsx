@@ -11,6 +11,8 @@ import { auth, db, provider } from "../lib/firebase";
 
 const SocialAuth = () => {
 	const navigate = useNavigate();
+	const [isSignedIn, setIsSignedIn] = useState(false);
+		const signInSuccess = true;
 	const handleLogin = async () => {
 		signInWithPopup(auth, provider)
 			.then(async (result) => {
@@ -28,16 +30,7 @@ const SocialAuth = () => {
 
 				toast.error(errorMessage);
 			});
-	};
-	useEffect(() => {
-		auth.onAuthStateChanged((user) => user && navigate("/dashboard"));
-	});
-
-	const [isSignedIn, setIsSignedIn] = useState(false);
-
-	const handleSignIn = () => {
-		// Your sign-in logic here, assuming signInSuccess() returns true on successful sign-in
-		const signInSuccess = true;
+	
 
 		if (signInSuccess) {
 			setIsSignedIn(true);
@@ -53,6 +46,13 @@ const SocialAuth = () => {
 			});
 		}
 	};
+	useEffect(() => {
+		auth.onAuthStateChanged((user) => user && navigate("/dashboard"));
+	});
+
+	
+
+	
 	
 	return (
 		<>
@@ -64,10 +64,9 @@ const SocialAuth = () => {
 						padding: "0.5675rem",
 						flex: 1,
 					}}
-					onClick={(handleLogin, handleSignIn)}
+					onClick={handleLogin}
 				>
 					<FcGoogle color="#DF3E30" width={22} height={22} />
-					{isSignedIn && <div>Welcome, user!</div>}
 				</IconButton>
 				<IconButton
 					sx={{
@@ -78,7 +77,7 @@ const SocialAuth = () => {
 					}}
 					onClick={handleLogin}
 				>
-					<BsGithub color="#1877F2" width={22} height={22} />
+					<BsGithub color="#1877F2" width={22} height={22} isSignedIn />
 				</IconButton>
 			</Stack>
 		</>
