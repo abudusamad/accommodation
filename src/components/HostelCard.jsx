@@ -72,7 +72,7 @@ const HostelList = () => {
 					</IconButton>
 				</Box>
 			</Box>
-			<Box className="relative bottom-24 left-0">
+			<Box className="relative bottom-24 left-0 max-md:hidden">
 				<Recommended />
 			</Box>
 
@@ -84,6 +84,7 @@ const HostelList = () => {
 							md={3}
 							className="mx-3 my-5 rounded-2xl  shadow-2xl px-3"
 							sx={{ backgroundColor: colors.primary[400] }}
+							key={hostel.id}
 						>
 							<img
 								src={hostel.image}
@@ -92,8 +93,13 @@ const HostelList = () => {
 									width: "auto",
 									height: "auto",
 								}}
-								key={hostel.id}
 							/>
+							{/* <Box
+								border="none"
+								className="rounded-none m-0 p-0 text-inherit bg-transparent transition-all border-width border border-solid z-50 cursor-pointer w-8 h-8 mt-28"
+							>
+							
+							</Box> */}
 
 							<Box display="flex" flexDirection="column">
 								<Typography
@@ -101,7 +107,6 @@ const HostelList = () => {
 									color={colors.greenAccent[200]}
 									fontWeight="bold"
 									className="pt-2 pb-2 pl-3 capitalize"
-									key={hostel.id}
 								>
 									{hostel.name}
 								</Typography>
@@ -116,7 +121,7 @@ const HostelList = () => {
 									fontSize="0.654rem"
 									textOverflow="none"
 									overflow="none"
-									onClick={() => navigate("/hostels")}
+									onClick={() => navigate("/hostels").filter[1]}
 									key={hostel.id}
 								>
 									<IconButton>{hostel.likes} </IconButton>
@@ -133,7 +138,6 @@ const HostelList = () => {
 										overflow="none"
 										textOverflow="none"
 										className="md:overflow-hidden"
-										key={hostel.id}
 									>
 										<span>{hostel.rating}</span>
 										<Typography variant="body2" sx={{ paddingLeft: "0.2rem" }}>
@@ -141,7 +145,7 @@ const HostelList = () => {
 										</Typography>
 									</Box>
 								</Box>
-								<Box display="flex" key={hostel.id}>
+								<Box display="flex">
 									<Box>
 										<Tooltip title={hostel.namLoc}>
 											<IconButton>{hostel.location}</IconButton>
@@ -182,6 +186,7 @@ const HostelList = () => {
 											margin=" 0 5px"
 											fontSize=".752rem"
 											className="pt-3"
+											display="none"
 										>
 											{hostel.category}
 										</Box>

@@ -15,6 +15,9 @@ import Geography from "./scenes/geography";
 import Sidebar from "./scenes/global/Sidebar";
 import Topbar from "./scenes/global/Topbar";
 import Invoices from "./scenes/invoices";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // Import the default styles
+
 import { ColorModeContext, useMode } from "./theme";
 function App() {
 	const [theme, colorMode] = useMode();
@@ -29,6 +32,7 @@ function App() {
 					<Suspense fallback={<LoadingSkeleton />}>
 						<div className="app">
 							<Sidebar isSidebar={isSidebar} />
+							<ToastContainer/>
 							<main className="content">
 								<Topbar setIsSidebar={setIsSidebar} />
 								<Routes>
