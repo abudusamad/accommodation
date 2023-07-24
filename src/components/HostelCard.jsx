@@ -10,7 +10,7 @@ import { hostels } from "../data/dummy";
 import Recommended from "../pages/Recommended/Recommended";
 import { tokens } from "../theme";
 
-const HostelList = () => {
+const HostelList = ({ img, title, star, reviews, prevPrice, newPrice }) => {
 	const theme = useTheme();
 	const colors = tokens(theme.palette.mode);
 	const [likedItems, setLikedItems] = useState([]);
@@ -46,6 +46,41 @@ const HostelList = () => {
 			setFilteredData(filteredResults);
 		}
 	};
+	const [selectedCategory, setSelectedCategory] = useState(null);
+
+	// ------------ Button Filtering -----------
+	const handleClick = (event) => {
+		setSelectedCategory(event.target.value);
+	};
+
+	function filteredDataButton(products, selected, query) {
+		let filteredProducts = products;
+
+		// Applying selected filter
+		if (selected) {
+			filteredProducts = filteredProducts.filter(
+				({ category, company, newPrice, name }) =>
+					category === selected ||
+					company === selected ||
+					newPrice === selected ||
+					name === selected
+			);
+		}
+
+		return filteredProducts.map(
+			({ image, title, star, reviews, prevPrice, newPrice }) => (
+				<HostelList
+					key={Math.random()}
+					img={image}
+					title={title}
+					star={star}
+					reviews={reviews}
+					prevPrice={prevPrice}
+					newPrice={newPrice}
+				/>
+			)
+		);
+	}
 
 	return (
 		<div>
@@ -73,7 +108,7 @@ const HostelList = () => {
 				</Box>
 			</Box>
 			<Box className="relative bottom-24 left-0 max-md:hidden">
-				<Recommended />
+				<Recommended handleClick={handleClick} />
 			</Box>
 
 			<Box sx={{ flexGrow: 1 }}>
