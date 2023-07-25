@@ -46,41 +46,6 @@ const HostelList = ({ img, title, star, reviews, prevPrice, newPrice }) => {
 			setFilteredData(filteredResults);
 		}
 	};
-	const [selectedCategory, setSelectedCategory] = useState(null);
-
-	// ------------ Button Filtering -----------
-	const handleClick = (event) => {
-		setSelectedCategory(event.target.value);
-	};
-
-	function filteredDataButton(products, selected, query) {
-		let filteredProducts = products;
-
-		// Applying selected filter
-		if (selected) {
-			filteredProducts = filteredProducts.filter(
-				({ category, company, newPrice, name }) =>
-					category === selected ||
-					company === selected ||
-					newPrice === selected ||
-					name === selected
-			);
-		}
-
-		return filteredProducts.map(
-			({ image, title, star, reviews, prevPrice, newPrice }) => (
-				<HostelList
-					key={Math.random()}
-					img={image}
-					title={title}
-					star={star}
-					reviews={reviews}
-					prevPrice={prevPrice}
-					newPrice={newPrice}
-				/>
-			)
-		);
-	}
 
 	return (
 		<div>
@@ -108,7 +73,7 @@ const HostelList = ({ img, title, star, reviews, prevPrice, newPrice }) => {
 				</Box>
 			</Box>
 			<Box className="relative bottom-24 left-0 max-md:hidden">
-				<Recommended handleClick={handleClick} />
+				<Recommended />
 			</Box>
 
 			<Box sx={{ flexGrow: 1 }}>
@@ -118,7 +83,11 @@ const HostelList = ({ img, title, star, reviews, prevPrice, newPrice }) => {
 							xs={12}
 							md={3}
 							className="mx-3 my-5 rounded-2xl  shadow-2xl px-3"
-							sx={{ backgroundColor: colors.primary[400] }}
+							sx={{
+								backgroundColor: colors.primary[400],
+								display: "flex",
+								flexDirection: "column",
+							}}
 							key={hostel.id}
 						>
 							<img
@@ -127,6 +96,7 @@ const HostelList = ({ img, title, star, reviews, prevPrice, newPrice }) => {
 								style={{
 									width: "auto",
 									height: "auto",
+									flex: "1",
 								}}
 							/>
 							{/* <Box
