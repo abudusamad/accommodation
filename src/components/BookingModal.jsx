@@ -1,27 +1,27 @@
-import React, { useContext, useEffect, useState } from "react";
-import "react-date-range/dist/styles.css"; //
-import "react-date-range/dist/theme/default.css";
 import {
-	Modal,
-	Typography,
 	Box,
+	Button,
 	FormControl,
 	InputLabel,
-	Select,
 	MenuItem,
-	Button,
+	Modal,
+	Select,
+	Typography,
 } from "@mui/material";
-import { DateRange } from "react-date-range";
 import { getDate } from "date-fns";
-import { AuthContext } from "../contexts/AuthContext";
 import { addDoc, collection } from "firebase/firestore";
-import { db } from "../lib/firebase";
-import { LoadingSpinner } from "../components/LoadingSpinner";
+import React, { useEffect, useState } from "react";
+import { DateRange } from "react-date-range";
+import "react-date-range/dist/styles.css"; //
+import "react-date-range/dist/theme/default.css";
 import { toast } from "react-hot-toast";
-import { bookModalStyle } from "../helper/styles";
 import { useNavigate } from "react-router-dom";
-export const BookingModal = ({ open, handleClose, hotelInfo }) => {
-	const { currentUser } = useContext(AuthContext);
+import { LoadingSpinner } from "../components/LoadingSpinner";
+import { bookModalStyle } from "../helper/styles";
+import { db, useAuth } from "../lib/firebase";
+
+export const BookingModal = ({ open, handleClose, imageGallery }) => {
+	const  currentUser  = useAuth();
 	const navigate = useNavigate();
 	const [guests, setGuests] = useState();
 	const [selectedGuestCount, setSelectedGuestCount] = useState(1);
@@ -48,8 +48,8 @@ export const BookingModal = ({ open, handleClose, hotelInfo }) => {
 	}
 
 	useEffect(() => {
-		setGuests(numberOfGuests(hotelInfo?.rooms[0]?.content?.split(" ")[0]));
-	}, [hotelInfo]);
+		setGuests(numberOfGuests(imageGallery?.rooms[0]?.content?.split(" ")[0]));
+	}, [imageGallery]);
 
 	function getTotalNightsBooked() {
 		const startDate = getDate(dates[0].startDate);
@@ -66,12 +66,12 @@ export const BookingModal = ({ open, handleClose, hotelInfo }) => {
 		setIsLoading(true);
 		const { uid, displayName } = currentUser;
 		await addDoc(bookings, {
-			hotelAddress: hotelInfo.address,
-			hotelName: hotelInfo.name,
+			hotelAddress: imageGallery.address,
+			hotelName: imageGallery.name,
 			numberOfGuests: selectedGuestCount,
 			bookingStartDate: `${dates[0].startDate}`,
 			bookingEndDate: `${dates[0].endDate}`,
-			price: hotelInfo?.pricePerNight * getTotalNightsBooked(),
+			price: imageGallery?.pricePerNight * getTotalNightsBooked(),
 			bookedBy: {
 				uid,
 				displayName,
@@ -98,7 +98,7 @@ export const BookingModal = ({ open, handleClose, hotelInfo }) => {
 		>
 			<Box sx={bookModalStyle}>
 				<Typography id="modal-modal-title" variant="h6" component="h2">
-					${hotelInfo?.pricePerNight} /night
+					${imageGallery?.pricePerNight} /night
 				</Typography>
 				<FormControl fullWidth sx={{ marginTop: 3 }}>
 					<InputLabel id="demo-simple-select-label">
@@ -142,7 +142,7 @@ export const BookingModal = ({ open, handleClose, hotelInfo }) => {
 						component="p"
 						variant="h6"
 					>
-						${hotelInfo?.pricePerNight} x{" "}
+						${imageGallery?.pricePerNight} x{" "}
 						{dates[0]?.endDate ? getTotalNightsBooked() : 0} nights
 					</Typography>
 
@@ -154,7 +154,7 @@ export const BookingModal = ({ open, handleClose, hotelInfo }) => {
 					>
 						$
 						{dates[0]?.endDate
-							? hotelInfo?.pricePerNight * getTotalNightsBooked()
+							? imageGallery?.pricePerNight * getTotalNightsBooked()
 							: 0}
 					</Typography>
 				</Box>
@@ -166,7 +166,7 @@ export const BookingModal = ({ open, handleClose, hotelInfo }) => {
 				>
 					Subtotal: $
 					{dates[0]?.endDate
-						? hotelInfo?.pricePerNight * getTotalNightsBooked()
+						? imageGallery?.pricePerNight * getTotalNightsBooked()
 						: 0}
 				</Typography>
 				<Button
