@@ -535,7 +535,8 @@ export const hostels = [
 		name: "Brunei-Complex",
 		address: "123 Street, City A",
 		price: "Gh  4000",
-		image: product10,
+		image:
+			"https://kosass.knust.edu.gh/api/images/dr-sarfo/cover-image-1654682839283.jpeg",
 		likes: <StarIcon />,
 		dislikes: <StarHalfIcon />,
 		location: <LocationOnIcon />,
@@ -553,7 +554,8 @@ export const hostels = [
 		name: "Hall 7",
 		address: "123 Street, City A",
 		price: "Gh 2500",
-		image: product2,
+		image:
+			"http://www.dimensions-architect.com/wp-content/uploads/2014/07/Scholars-Institute-building.png",
 		likes: <StarIcon />,
 		dislikes: <StarHalfIcon />,
 		location: <LocationOnIcon />,
