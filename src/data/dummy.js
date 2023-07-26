@@ -574,7 +574,8 @@ export const hostels = [
 		name: "Brunei-Complex",
 		address: "123 Street, City A",
 		price: "Gh 5000",
-		image: product3,
+		image:
+			"https://kosass.knust.edu.gh/api/images/amandah-hostel/cover-image-1686441637247.jpeg",
 		likes: <StarIcon />,
 		dislikes: <StarHalfIcon />,
 		location: <LocationOnIcon />,
