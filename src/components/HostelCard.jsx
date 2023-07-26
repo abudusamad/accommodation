@@ -182,7 +182,8 @@ const HostelList = ({ img, title, star, reviews, prevPrice, newPrice }) => {
 											fontWeight="bold"
 											margin=" 0 5px"
 											fontSize=".752rem"
-											className="pt-3"
+											className="pt-3 hidden"
+										
 										>
 											{hostel.price}
 										</Typography>
