@@ -19,7 +19,7 @@ import { tokens } from "../theme";
 
 export const ImageGallery = ({ images }) => {
 	const [open, setOpen] = useState(false);
-	const [selectedIdx, setSelectedIdx] = useState(0);
+	
 	const theme = useTheme();
 	const colors = tokens(theme.palette.mode);
 	const params = useParams();
@@ -35,12 +35,13 @@ export const ImageGallery = ({ images }) => {
 	const handleClose = () => setOpen(false);
 
 	const { data } = useQuery("hotel-info", fetchHoteInfo);
+	
 	return (
 					<Carousel showThumbs={false}>
 		<Box width="98%">
 				<Grid container spacing={0}>
 					{bookings?.map((Booking, index) => (
-						<Grid key={ index.id } md={ 4 } xs={ 2 }>
+						<Grid key={ index.id } md={ 4 } xs={ 2 } className="flex flex-1">
 							<div key={index}>
 
 							<img
@@ -50,6 +51,7 @@ export const ImageGallery = ({ images }) => {
 								style={{
 									width: "auto",
 									height: "98%",
+								
 								}}
 								className="p-3"
 								sx={{ backgroundColor: colors.grey[400] }}

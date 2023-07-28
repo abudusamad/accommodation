@@ -47,6 +47,7 @@ const HostelList = ({ img, title, star, reviews, prevPrice, newPrice }) => {
 		}
 	};
 
+
 	return (
 		<div>
 			<Box
@@ -88,7 +89,7 @@ const HostelList = ({ img, title, star, reviews, prevPrice, newPrice }) => {
 								display: "flex",
 								flexDirection: "column",
 							}}
-							key={hostel.id}
+							key={index}
 						>
 							<img
 								src={hostel.image}
@@ -98,14 +99,9 @@ const HostelList = ({ img, title, star, reviews, prevPrice, newPrice }) => {
 									height: "auto",
 									flex: "1",
 								}}
+								onClick={() => navigate("/hostels")}
 							/>
-							{/* <Box
-								border="none"
-								className="rounded-none m-0 p-0 text-inherit bg-transparent transition-all border-width border border-solid z-50 cursor-pointer w-8 h-8 mt-28"
-							>
-							
-							</Box> */}
-
+							x
 							<Box display="flex" flexDirection="column">
 								<Typography
 									variant="body1"
@@ -126,7 +122,6 @@ const HostelList = ({ img, title, star, reviews, prevPrice, newPrice }) => {
 									fontSize="0.654rem"
 									textOverflow="none"
 									overflow="none"
-									onClick={() => navigate("/hostels").filter[1]}
 									key={hostel.id}
 								>
 									<IconButton>{hostel.likes} </IconButton>
@@ -183,7 +178,6 @@ const HostelList = ({ img, title, star, reviews, prevPrice, newPrice }) => {
 											margin=" 0 5px"
 											fontSize=".752rem"
 											className="pt-3 hidden"
-										
 										>
 											{hostel.price}
 										</Typography>
