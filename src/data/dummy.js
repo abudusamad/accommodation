@@ -532,7 +532,7 @@ export const bookings = [
 
 export const hostels = [
 	{
-		name: "Brunei-Complex",
+		name: "Unique Hostel ",
 		address: "123 Street, City A",
 		price: "Gh  4000",
 		image:
@@ -609,7 +609,7 @@ export const hostels = [
 		category: "hostel",
 	},
 	{
-		name: "Brunei-Complex",
+		name: "Happy Family Hostel",
 		address: "123 Street, City A",
 		price: "Gh 2500",
 		image:
@@ -628,7 +628,7 @@ export const hostels = [
 		category: "homestel",
 	},
 	{
-		name: "Brunei-Complex",
+		name: "Brunei-Shalom Kibutz Hostel",
 		address: "123 Street, City A",
 		price: "Gh 4500",
 		image:
@@ -647,7 +647,7 @@ export const hostels = [
 		category: "hostel",
 	},
 	{
-		name: "Brunei-Complex",
+		name: "Ebeneze Hostel",
 		address: "123 Street, City A",
 		price: "Gh 7000",
 		image:
@@ -666,7 +666,7 @@ export const hostels = [
 		category: "hostel",
 	},
 	{
-		name: "Brunei-Complex",
+		name: "Kwame Boateng Hostel",
 		address: "123 Street, City A",
 		price: "Gh 3500",
 		image:
