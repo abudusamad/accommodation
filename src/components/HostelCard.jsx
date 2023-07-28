@@ -90,6 +90,7 @@ const HostelList = ({ img, title, star, reviews, prevPrice, newPrice }) => {
 								flexDirection: "column",
 							}}
 							key={index}
+							onClick={() => navigate("/hostels")}
 						>
 							<img
 								src={hostel.image}
@@ -99,9 +100,8 @@ const HostelList = ({ img, title, star, reviews, prevPrice, newPrice }) => {
 									height: "auto",
 									flex: "1",
 								}}
-								onClick={() => navigate("/hostels")}
 							/>
-							x
+
 							<Box display="flex" flexDirection="column">
 								<Typography
 									variant="body1"
