@@ -8,22 +8,25 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { Toaster } from "react-hot-toast";
-import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { useParams } from "react-router-dom";
+import { getHotelBySlug } from "../api/request";
 import { BookingModal } from "../components/BookingModal";
 import { bookings } from "../data/dummy";
 import { tokens } from "../theme";
-import { getHotelBySlug } from "../api/request";
+
 export const ImageGallery = ({ images }) => {
 	const [open, setOpen] = useState(false);
+	const [selectedIdx, setSelectedIdx] = useState(0);
 	const theme = useTheme();
 	const colors = tokens(theme.palette.mode);
 	const params = useParams();
 
 	const { slug } = params;
 
-	
-  const fetchHoteInfo = async () => {
+	const fetchHoteInfo = async () => {
 		const { data } = await getHotelBySlug(slug);
 		return data;
 	};
@@ -33,57 +36,62 @@ export const ImageGallery = ({ images }) => {
 
 	const { data } = useQuery("hotel-info", fetchHoteInfo);
 	return (
+					<Carousel showThumbs={false}>
 		<Box width="98%">
-			<Grid container spacing={0}>
-				{bookings?.map((Booking, index) => (
-					<Grid key={index.id} md={4} xs={12}>
-						<img
-							src={Booking.image}
-							alt={`Hostel ${Booking + 1}`}
-							key={index.id}
-							style={{
-								width: "auto",
-								height: "98%",
-							}}
-							className="p-3"
-							sx={{ backgroundColor: colors.grey[400] }}
-						/>
-					</Grid>
-				))}
-			</Grid>
-			<Box sx={{ marginTop: 2 }} paddingLeft="10px">
-				<Box
-					sx={{
-						display: "flex",
-						justifyContent: "space-between",
-						alignItems: "center",
-					}}
-				>
-					<Typography variant="h5">What this place offers!!</Typography>
+				<Grid container spacing={0}>
+					{bookings?.map((Booking, index) => (
+						<Grid key={ index.id } md={ 4 } xs={ 2 }>
+							<div key={index}>
 
-					<CardContent>
-						<Button
-							onClick={handleOpen}
-							variant="outlined"
-							className="hover:bg-white"
-							sx={{ backgroundColor: "white" }}
-						>
-							Reserve
-						</Button>
-					</CardContent>
+							<img
+								src={Booking.image}
+								alt={`Hostel ${Booking + 1}`}
+								
+								style={{
+									width: "auto",
+									height: "98%",
+								}}
+								className="p-3"
+								sx={{ backgroundColor: colors.grey[400] }}
+								/>
+								</div>
+						</Grid>
+					))}
+				</Grid>
+				<Box sx={{ marginTop: 2 }} paddingLeft="10px">
+					<Box
+						sx={{
+							display: "flex",
+							justifyContent: "space-between",
+							alignItems: "center",
+						}}
+					>
+						<Typography variant="h5">What this place offers!!</Typography>
+
+						<CardContent>
+							<Button
+								onClick={handleOpen}
+								variant="outlined"
+								className="hover:bg-white"
+								sx={{ backgroundColor: "white" }}
+							>
+								Reserve
+							</Button>
+						</CardContent>
+					</Box>
 				</Box>
-			</Box>
-			<BookingModal hotelInfo={data} open={open} handleClose={handleClose} />
+				<BookingModal hotelInfo={data} open={open} handleClose={handleClose} />
 
-			<Toaster
-				position="top-right"
-				toastOptions={{
-					duration: 1500,
-					style: {
-						fontSize: 14,
-					},
-				}}
-			/>
+				<Toaster
+					position="top-right"
+					toastOptions={{
+						duration: 1500,
+						style: {
+							fontSize: 14,
+						},
+					}}
+				/>
 		</Box>
+					</Carousel>
 	);
 };
