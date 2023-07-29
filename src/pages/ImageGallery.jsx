@@ -8,55 +8,40 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { Toaster } from "react-hot-toast";
-import { useQuery } from "react-query";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { useParams } from "react-router-dom";
-import { getHotelBySlug } from "../api/request";
 import { BookingModal } from "../components/BookingModal";
 import { bookings } from "../data/dummy";
 import { tokens } from "../theme";
 
 export const ImageGallery = ({ images }) => {
 	const [open, setOpen] = useState(false);
-	
+
 	const theme = useTheme();
 	const colors = tokens(theme.palette.mode);
-	const params = useParams();
 
-	const { slug } = params;
-
-	const fetchHoteInfo = async () => {
-		const { data } = await getHotelBySlug(slug);
-		return data;
-	};
 	const handleOpen = () => setOpen(true);
 
 	const handleClose = () => setOpen(false);
 
-	const { data } = useQuery("hotel-info", fetchHoteInfo);
-	
 	return (
-					<Carousel showThumbs={false}>
-		<Box width="98%">
+		<Carousel showThumbs={false}>
+			<Box width="98%">
 				<Grid container spacing={0}>
 					{bookings?.map((Booking, index) => (
-						<Grid key={ index.id } md={ 4 } xs={ 2 } className="flex flex-1">
+						<Grid key={index.id} md={4} xs={2} className="flex flex-1">
 							<div key={index}>
-
-							<img
-								src={Booking.image}
-								alt={`Hostel ${Booking + 1}`}
-								
-								style={{
-									width: "auto",
-									height: "98%",
-								
-								}}
-								className="p-3"
-								sx={{ backgroundColor: colors.grey[400] }}
+								<img
+									src={Booking.image}
+									alt={`Hostel ${Booking + 1}`}
+									style={{
+										width: "auto",
+										height: "98%",
+									}}
+									className="p-3"
+									sx={{ backgroundColor: colors.grey[400] }}
 								/>
-								</div>
+							</div>
 						</Grid>
 					))}
 				</Grid>
@@ -82,7 +67,7 @@ export const ImageGallery = ({ images }) => {
 						</CardContent>
 					</Box>
 				</Box>
-				<BookingModal hotelInfo={data} open={open} handleClose={handleClose} />
+				<BookingModal open={open} handleClose={handleClose} />
 
 				<Toaster
 					position="top-right"
@@ -93,7 +78,7 @@ export const ImageGallery = ({ images }) => {
 						},
 					}}
 				/>
-		</Box>
-					</Carousel>
+			</Box>
+		</Carousel>
 	);
 };
