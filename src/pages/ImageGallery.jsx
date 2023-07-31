@@ -13,6 +13,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { BookingModal } from "../components/BookingModal";
 import { bookings } from "../data/dummy";
 import { tokens } from "../theme";
+import Chart from "../chart/Chart";
 
 export const ImageGallery = ({ images }) => {
 	const [open, setOpen] = useState(false);
@@ -67,7 +68,8 @@ export const ImageGallery = ({ images }) => {
 						</CardContent>
 					</Box>
 				</Box>
-				<BookingModal open={open} handleClose={handleClose} />
+				<BookingModal open={ open } handleClose={ handleClose } />
+				<Chart/>
 
 				<Toaster
 					position="top-right"
