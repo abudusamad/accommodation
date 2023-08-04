@@ -17,6 +17,8 @@ const HostelList = ({ img, title, star, reviews, prevPrice, newPrice }) => {
 	const [query, setQuery] = useState("");
 	const [filteredData, setFilteredData] = useState(hostels);
 	const [liked, setLiked] = useState(false);
+	  const [searchResults, setSearchResults] = useState([]);
+
 	const handleLike = (index) => {
 		const isLiked = likedItems.includes(index);
 		setLiked(liked);
@@ -44,9 +46,9 @@ const HostelList = ({ img, title, star, reviews, prevPrice, newPrice }) => {
 					item.namLoc.toLowerCase().includes(inputValue.toLowerCase())
 			);
 			setFilteredData(filteredResults);
+			setSearchResults(filteredResults);
 		}
 	};
-
 
 	return (
 		<div>
@@ -76,8 +78,13 @@ const HostelList = ({ img, title, star, reviews, prevPrice, newPrice }) => {
 			<Box className="relative bottom-24 left-0 max-md:hidden">
 				<Recommended />
 			</Box>
-
-			<Box sx={{ flexGrow: 1 }}>
+		<ul>
+        {searchResults.length === 0 ? (
+          <li className="text-5xl m-28">No Result Found</li>
+		  
+				) : (
+						
+					<Box sx={{ flexGrow: 1 }}>
 				<Grid container spacing={1}>
 					{(hostels, filteredData).map((hostel, index) => (
 						<Grid
@@ -197,6 +204,9 @@ const HostelList = ({ img, title, star, reviews, prevPrice, newPrice }) => {
 					))}
 				</Grid>
 			</Box>
+		)
+		}
+		</ul>
 		</div>
 	);
 };
