@@ -17,7 +17,7 @@ const HostelList = ({ img, title, star, reviews, prevPrice, newPrice }) => {
 	const [query, setQuery] = useState("");
 	const [filteredData, setFilteredData] = useState(hostels);
 	const [liked, setLiked] = useState(false);
-	  const [searchResults, setSearchResults] = useState([]);
+	const [searchResults, setSearchResults] = useState([]);
 
 	const handleLike = (index) => {
 		const isLiked = likedItems.includes(index);
@@ -78,135 +78,135 @@ const HostelList = ({ img, title, star, reviews, prevPrice, newPrice }) => {
 			<Box className="relative bottom-24 left-0 max-md:hidden">
 				<Recommended />
 			</Box>
-		<ul>
-        {searchResults.length === 0 ? (
-          <li className="text-5xl m-28">No Result Found</li>
-		  
+			<ul>
+				{searchResults.length === 0 ? (
+					<li className="text-5xl m-28">No Result Found</li>
 				) : (
-						
 					<Box sx={{ flexGrow: 1 }}>
-				<Grid container spacing={1}>
-					{(hostels, filteredData).map((hostel, index) => (
-						<Grid
-							xs={12}
-							md={3}
-							className="mx-3 my-5 rounded-2xl  shadow-2xl px-3"
-							sx={{
-								backgroundColor: colors.primary[400],
-								display: "flex",
-								flexDirection: "column",
-							}}
-							key={index}
-							onClick={() => navigate("/hostels")}
-						>
-							<img
-								src={hostel.image}
-								alt={`Hostel ${index + 1}`}
-								style={{
-									width: "auto",
-									height: "auto",
-									flex: "1",
-								}}
-							/>
+						<Grid container spacing={1}>
+							{(hostels, filteredData).map((hostel, index) => (
+								<Grid
+									xs={12}
+									md={3}
+									className="mx-3 my-5 rounded-2xl  shadow-2xl px-3"
+									sx={{
+										backgroundColor: colors.primary[400],
+										display: "flex",
+										flexDirection: "column",
+									}}
+									key={index}
+									onClick={() => navigate("/hostels")}
+								>
+									<img
+										src={hostel.image}
+										alt={`Hostel ${index + 1}`}
+										style={{
+											width: "auto",
+											height: "auto",
+											flex: "1",
+										}}
+									/>
 
-							<Box display="flex" flexDirection="column">
-								<Typography
-									variant="body1"
-									color={colors.greenAccent[200]}
-									fontWeight="bold"
-									className="pt-2 pb-2 pl-3 capitalize"
-								>
-									{hostel.name}
-								</Typography>
-								<Typography variant="body1" className="pl-3">
-									{hostel.address}
-								</Typography>
-								<Box
-									display="flex"
-									alignhostel="center"
-									color={colors.grey[100]}
-									fontWeight="bold"
-									fontSize="0.654rem"
-									textOverflow="none"
-									overflow="none"
-									key={hostel.id}
-								>
-									<IconButton>{hostel.likes} </IconButton>
-									<IconButton>{hostel.likes}</IconButton>
-									<IconButton>{hostel.likes}</IconButton>
-									<IconButton>{hostel.likes}</IconButton>
-									<IconButton>{hostel.dislikes}</IconButton>
-									<Box
-										display="flex"
-										alignItems="center"
-										justifyContent="center"
-										fontSize="0.654rem"
-										flexWrap="wrap"
-										overflow="none"
-										textOverflow="none"
-										className="md:overflow-hidden"
-									>
-										<span>{hostel.rating}</span>
-										<Typography variant="body2" sx={{ paddingLeft: "0.2rem" }}>
-											{hostel.reviews}
-										</Typography>
-									</Box>
-								</Box>
-								<Box display="flex">
-									<Box>
-										<Tooltip title={hostel.namLoc}>
-											<IconButton>{hostel.location}</IconButton>
-										</Tooltip>
-									</Box>
-									<Box fontSize="0.652rem">
-										<Tooltip title={hostel.number}>
-											<IconButton>{hostel.bed}</IconButton>
-										</Tooltip>
-									</Box>
-									<Box>
-										<Tooltip title={hostel.available}>
-											<IconButton>{hostel.wifi}</IconButton>
-										</Tooltip>
-									</Box>
-									<Box className="flex ">
-										<IconButton
-											onClick={() => handleLike(index)}
-											color={liked ? "error" : "default"}
-										>
-											{likedItems.includes(index) ? (
-												<FavoriteIcon />
-											) : (
-												<FavoriteBorderIcon />
-											)}
-										</IconButton>
+									<Box display="flex" flexDirection="column">
 										<Typography
-											color={colors.grey[100]}
+											variant="body1"
+											color={colors.greenAccent[200]}
 											fontWeight="bold"
-											margin=" 0 5px"
-											fontSize=".752rem"
-											className="pt-3 hidden"
+											className="pt-2 pb-2 pl-3 capitalize"
 										>
-											{hostel.price}
+											{hostel.name}
+										</Typography>
+										<Typography variant="body1" className="pl-3">
+											{hostel.address}
 										</Typography>
 										<Box
+											display="flex"
+											alignhostel="center"
+											color={colors.grey[100]}
 											fontWeight="bold"
-											margin=" 0 5px"
-											fontSize=".752rem"
-											className="pt-3"
-											display="none"
+											fontSize="0.654rem"
+											textOverflow="none"
+											overflow="none"
+											key={hostel.id}
 										>
-											{hostel.category}
+											<IconButton>{hostel.likes} </IconButton>
+											<IconButton>{hostel.likes}</IconButton>
+											<IconButton>{hostel.likes}</IconButton>
+											<IconButton>{hostel.likes}</IconButton>
+											<IconButton>{hostel.dislikes}</IconButton>
+											<Box
+												display="flex"
+												alignItems="center"
+												justifyContent="center"
+												fontSize="0.654rem"
+												flexWrap="wrap"
+												overflow="none"
+												textOverflow="none"
+												className="md:overflow-hidden"
+											>
+												<span>{hostel.rating}</span>
+												<Typography
+													variant="body2"
+													sx={{ paddingLeft: "0.2rem" }}
+												>
+													{hostel.reviews}
+												</Typography>
+											</Box>
+										</Box>
+										<Box display="flex">
+											<Box>
+												<Tooltip title={hostel.namLoc}>
+													<IconButton>{hostel.location}</IconButton>
+												</Tooltip>
+											</Box>
+											<Box fontSize="0.652rem">
+												<Tooltip title={hostel.number}>
+													<IconButton>{hostel.bed}</IconButton>
+												</Tooltip>
+											</Box>
+											<Box>
+												<Tooltip title={hostel.available}>
+													<IconButton>{hostel.wifi}</IconButton>
+												</Tooltip>
+											</Box>
+											<Box className="flex ">
+												<IconButton
+													onClick={() => handleLike(index)}
+													color={liked ? "error" : "default"}
+												>
+													{likedItems.includes(index) ? (
+														<FavoriteIcon />
+													) : (
+														<FavoriteBorderIcon />
+													)}
+												</IconButton>
+												<Typography
+													color={colors.grey[100]}
+													fontWeight="bold"
+													margin=" 0 5px"
+													fontSize=".752rem"
+													className="pt-3 hidden"
+												>
+													{hostel.price}
+												</Typography>
+												<Box
+													fontWeight="bold"
+													margin=" 0 5px"
+													fontSize=".752rem"
+													className="pt-3"
+													display="none"
+												>
+													{hostel.category}
+												</Box>
+											</Box>
 										</Box>
 									</Box>
-								</Box>
-							</Box>
+								</Grid>
+							))}
 						</Grid>
-					))}
-				</Grid>
-			</Box>
-		)
-		}
-		</ul>
+					</Box>
+				)}
+			</ul>
 		</div>
 	);
 };
