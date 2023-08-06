@@ -79,7 +79,7 @@ const HostelList = ({ img, title, star, reviews, prevPrice, newPrice }) => {
 				<Recommended />
 			</Box>
 		<ul>
-        {searchResults.length ==! 0 ? (
+        {searchResults.length =! 0 ? (
           <li className="text-5xl m-28">No Result Found</li>
 		  
 				) : (
