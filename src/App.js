@@ -16,8 +16,7 @@ import Sidebar from "./scenes/global/Sidebar";
 import Topbar from "./scenes/global/Topbar";
 import Invoices from "./scenes/invoices";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // Import the default styles
-
+import "react-toastify/dist/ReactToastify.css";
 import { ColorModeContext, useMode } from "./theme";
 function App() {
 	const [theme, colorMode] = useMode();
